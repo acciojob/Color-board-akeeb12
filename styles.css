@@ -1,1 +1,13 @@
 /*  your css code here. If applicable */
+.container{
+	display:grid;
+	grid-template-columns:repeat(20, 1fr);
+	grid-template-rows:repeat(40, 1fr);
+}
+.square{
+	width: 20px;
+	height: 20px;
+	background-color: white;
+}
+
+
