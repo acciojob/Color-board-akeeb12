@@ -10,12 +10,10 @@ document.body.appendChild(container);
 let squares = document.querySelectorAll('.square');
 
 function getRandomColor() {
-    let letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    let r = Math.floor(Math.random() * 256); // pick a "red" from 0 - 255
+    let g = Math.floor(Math.random() * 256); // pick a "green" from 0 - 255
+    let b = Math.floor(Math.random() * 256); // pick a "blue" from 0 - 255
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 }
 
 squares.forEach(square => {
