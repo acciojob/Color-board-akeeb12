@@ -12,17 +12,12 @@ let square = document.querySelectorAll('.square');
 square.forEach(square => {
 	square.addEventListener('mouseover', () =>{
 		square.style.backgroundColor = 'red';
-	});
-});
-square.addEventListener('moverover', () =>{
-	square.style.backgroundColor = 'red';
 	setTimeout (() =>{
 		square.style.backgroundColor = 'white';
 	}, 1000);
 });
-// .square{
-// 	transition : background-color: 1s;
-// }
+});
+
 
 
 
