@@ -11,7 +11,7 @@ document.body.appendChild(container);
 let square = document.querySelectorAll('.square');
 square.forEach(square => {
 	square.addEventListener('mouseover', () =>{
-		square.style.backgroundColor = 'red';
+		square.style.backgroundColor = 'rgb(29,29,29)';
 	setTimeout (() =>{
 		square.style.backgroundColor = 'white';
 	}, 1000);
