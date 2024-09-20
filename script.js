@@ -1,32 +1,33 @@
-//your JS code here. If required.
-let container = document.createElement('div');
-container.className = 'container';
-for(let i = 0; i <800; i ++){
-	let square = document.createElement('div');
-	square.className = 'square';
-	container.appendChild(square);
+const container = document.querySelector('.container');
+
+for (let i = 0; i < 800; i++) {
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.addEventListener('mouseover', () => {
+        square.style.backgroundColor = getRandomColor();
+        setTimeout(() => {
+            square.style.backgroundColor = 'rgb(29, 29, 29)'; // Updated to match the initial color
+        }, 1000);
+    });
+    container.appendChild(square);
 }
-document.body.appendChild(container);
-let squares = document.querySelectorAll('.square');
 
 function getRandomColor() {
-    let r = Math.floor(Math.random() * 256); // pick a "red" from 0 - 255
-    let g = Math.floor(Math.random() * 256); // pick a "green" from 0 - 255
-    let b = Math.floor(Math.random() * 256); // pick a "blue" from 0 - 255
-    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
-squares.forEach(square => {
-	square.addEventListener('mouseover', () =>{
-		square.style.backgroundColor = getRandomColor();
-	setTimeout (() =>{
-		square.style.backgroundColor = 'white';
-	}, 1000);
-});
-});
-
-
-
-
-
-
+() => {
+    cy.visit(baseUrl + "/main.html"); 
+    cy.get(".container").should("exist");
+    cy.get(".container").find(".square").eq(799).should("exist");
+    cy.get(".square").first().should("have.css", "background-color", "rgb(29, 29, 29)");
+    cy.get(".square").first().trigger("mouseover");
+    cy.get(".square").first().should("not.have.css", "background-color", "rgb(29, 29, 29)");
+    cy.get(".square").first().trigger("mouseout");
+    cy.get(".square").first().should("have.css", "background-color", "rgb(29, 29, 29)");
+}
