@@ -18,8 +18,7 @@ function getRandomColor() {
     return color;
 }
 
-let square = document.querySelectorAll('.square');
-square.forEach(square => {
+squares.forEach(square => {
 	square.addEventListener('mouseover', () =>{
 		square.style.backgroundColor = getRandomColor();
 	setTimeout (() =>{
